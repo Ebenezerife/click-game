@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "395189673398",
+    "project_id": "ifeclickgame",
+    "storage_bucket": "ifeclickgame.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:395189673398:android:aea796df8f777943757517",
+        "android_client_info": {
+          "package_name": "com.example.click_game"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZy55x2vh31OHK8HYfs-Gz3iFPsdicqV8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
