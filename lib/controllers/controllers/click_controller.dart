@@ -83,34 +83,39 @@ class ClickController extends GetxController {
   final question2 = 'Subtract 100 from the product of 20 and 10'.obs;
   final question3 = 'Add 64 to the numbers of state we have in Nigeria'.obs;
   final question4 = 'If X=10 and F= 20, find the product of FX'.obs;
-  final question5 = '1 dozens times 5'.obs;
-  final question6 = '1 dozens times 6'.obs;
-  final question7 = '1 dozens times 7'.obs;
-  final question8 = '1 dozens times 8'.obs;
-  final question9 = '1 dozens times 9'.obs;
-  final question10 = '1 dozens times 10'.obs;
+  final question5 =
+      'Multiply the number of letters in LAGOS by the Sqaure Root of 16. Multiply the answer by 3'
+          .obs;
+  final question6 =
+      'If X=3,500 and G= 2,000. Find X-G and divide the answer by 10'.obs;
+  final question7 = '2 dozens times 7'.obs;
+  final question8 = '(3 dozens multiplied by 5)-20'.obs;
+  final question9 = '1 dozen times 9'.obs;
+  final question10 =
+      'How many odd numbers are there between from 3 to 50. Multiply the answer by 5'
+          .obs;
 
   final options1 = 'A.50 B.55 C.60 D.45 E.150'.obs;
   final options2 = 'A.50 B.55 C.60 D.100 E.150'.obs;
-  final options3 = 'A.50 B.100 C.60 D.45 E.150'.obs; // 'No Option'.obs
-  final options4 = 'A.250 B.55 C.200 D.210 E.150'.obs; // 'No Option'.obs
-  final options5 = 'A.50 B.55 C.60 D.45 E.150'.obs; // 'No Option'.obs
-  final options6 = 'A.50 B.72 C.60 D.45 E.150'.obs; // 'No Option'.obs
-  final options7 = 'A.50 B.55 C.60 D.84 E.150'.obs; // 'No Option'.obs
-  final options8 = 'A.50 B.55 C.60 D.96 E.150'.obs; // 'No Option'.obs
-  final options9 = 'A.50 B.108 C.60 D.45 E.150'.obs; // 'No Option'.obs
-  final options10 = 'A.50 B.55 C.60 D.45 E.120'.obs; // 'No Option'.obs
+  final options3 = 'No Option'.obs; // 'A.50 B.100 C.60 D.45 E.150'.obs;
+  final options4 = 'No Option'.obs; // 'A.250 B.55 C.200 D.210 E.150'.obs;
+  final options5 = 'No Option'.obs; // 'A.50 B.55 C.60 D.45 E.150'.obs;
+  final options6 = 'No Option'.obs; // 'A.50 B.72 C.60 D.45 E.150'.obs;
+  final options7 = 'No Option'.obs; // 'A.50 B.55 C.60 D.84 E.150'.obs;
+  final options8 = 'No Option'.obs; // 'A.50 B.55 C.60 D.96 E.150'.obs;
+  final options9 = 'No Option'.obs; // 'A.50 B.108 C.60 D.45 E.150'.obs;
+  final options10 = 'No Option'.obs; // 'A.50 B.55 C.60 D.45 E.120'.obs;
 
   final answer1 = 50;
   final answer2 = 100;
   final answer3 = 100;
   final answer4 = 200;
   final answer5 = 60;
-  final answer6 = 72;
-  final answer7 = 84;
-  final answer8 = 96;
+  final answer6 = 150;
+  final answer7 = 168;
+  final answer8 = 160;
   final answer9 = 108;
-  final answer10 = 120;
+  final answer10 = 115;
   // new features for simplicity stops here
 
   // testrunning for lucky click starts here
