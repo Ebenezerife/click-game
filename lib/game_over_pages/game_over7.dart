@@ -2,8 +2,8 @@ import 'package:click_game/controllers/controllers/click_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class GameOver5 extends StatelessWidget {
-  const GameOver5({super.key});
+class GameOver7 extends StatelessWidget {
+  const GameOver7({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class GameOver5 extends StatelessWidget {
             child: Column(
               children: [
                 const Text(
-                  'YOU FAILED AT STEP 5,YOU ARE GOING HOME WITH \$300',
+                  'YOU FAILED AT STEP 7,YOU ARE GOING HOME WITH \$400',
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,

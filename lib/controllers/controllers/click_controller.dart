@@ -1,20 +1,35 @@
 import 'dart:async';
 
+import 'package:click_game/game_over_pages/game_over10.dart';
+import 'package:click_game/game_over_pages/game_over6.dart';
+import 'package:click_game/game_over_pages/game_over7.dart';
+import 'package:click_game/game_over_pages/game_over8.dart';
+import 'package:click_game/game_over_pages/game_over9.dart';
 import 'package:click_game/game_over_pages/gameover1.dart';
 import 'package:click_game/game_over_pages/gameover2.dart';
 import 'package:click_game/game_over_pages/gameover3.dart';
 import 'package:click_game/game_over_pages/gameover4.dart';
 import 'package:click_game/game_over_pages/gameover5.dart';
+import 'package:click_game/next_pages/topage10.dart';
 import 'package:click_game/next_pages/topage2.dart';
 import 'package:click_game/next_pages/topage3.dart';
 import 'package:click_game/next_pages/topage4.dart';
 import 'package:click_game/next_pages/topage5.dart';
+import 'package:click_game/next_pages/topage6.dart';
+import 'package:click_game/next_pages/topage7.dart';
+import 'package:click_game/next_pages/topage8.dart';
+import 'package:click_game/next_pages/topage9.dart';
 import 'package:click_game/pages/confirm.dart';
+import 'package:click_game/pages/eighth_page.dart';
 import 'package:click_game/pages/fifth_page.dart';
 import 'package:click_game/pages/fourth_page.dart';
 import 'package:click_game/pages/home.dart';
+import 'package:click_game/pages/nineth_page.dart';
 import 'package:click_game/pages/second_page.dart';
+import 'package:click_game/pages/seventh_page.dart';
+import 'package:click_game/pages/sixth_page.dart';
 import 'package:click_game/pages/start_page.dart';
+import 'package:click_game/pages/tenth_page.dart';
 import 'package:click_game/pages/third_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -22,22 +37,46 @@ import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 
 class ClickController extends GetxController {
-  Timer? _timer, _timer1, _timer2, _timer3, _timer4;
+  Timer? _timer,
+      _timer1,
+      _timer2,
+      _timer3,
+      _timer4,
+      _timer5,
+      _timer6,
+      _timer7,
+      _timer8,
+      _timer9;
   int remainingseconds = 1;
   int remainingseconds1 = 1;
   int remainingseconds2 = 1;
   int remainingseconds3 = 1;
   int remainingseconds4 = 1;
+  int remainingseconds5 = 1;
+  int remainingseconds6 = 1;
+  int remainingseconds7 = 1;
+  int remainingseconds8 = 1;
+  int remainingseconds9 = 1;
   var counter = 0.obs;
   var counterr = 0.obs;
   var counterr3 = 0.obs;
   var counterr4 = 0.obs;
   var counterr5 = 0.obs;
+  var counterr6 = 0.obs;
+  var counterr7 = 0.obs;
+  var counterr8 = 0.obs;
+  var counterr9 = 0.obs;
+  var counterr10 = 0.obs;
   final time = '00.00'.obs;
   final time1 = '00.00'.obs;
   final time2 = '00.00'.obs;
   final time3 = '00.00'.obs;
   final time4 = '00.00'.obs;
+  final time5 = '00.00'.obs;
+  final time6 = '00.00'.obs;
+  final time7 = '00.00'.obs;
+  final time8 = '00.00'.obs;
+  final time9 = '00.00'.obs;
 
 // new feature for simplicity
   final question1 = 'Multiply the square root of 25 by 10'.obs;
@@ -45,18 +84,33 @@ class ClickController extends GetxController {
   final question3 = 'Add 64 to the numbers of state we have in Nigeria'.obs;
   final question4 = 'If X=10 and F= 20, find the product of FX'.obs;
   final question5 = '1 dozens times 5'.obs;
+  final question6 = '1 dozens times 6'.obs;
+  final question7 = '1 dozens times 7'.obs;
+  final question8 = '1 dozens times 8'.obs;
+  final question9 = '1 dozens times 9'.obs;
+  final question10 = '1 dozens times 10'.obs;
 
   final options1 = 'A.50 B.55 C.60 D.45 E.150'.obs;
   final options2 = 'A.50 B.55 C.60 D.100 E.150'.obs;
-  final options3 = 'A.50 B.100 C.60 D.45 E.150'.obs;
-  final options4 = 'A.250 B.55 C.200 D.210 E.150'.obs;
-  final options5 = 'A.50 B.55 C.60 D.45 E.150'.obs;
+  final options3 = 'A.50 B.100 C.60 D.45 E.150'.obs; // 'No Option'.obs
+  final options4 = 'A.250 B.55 C.200 D.210 E.150'.obs; // 'No Option'.obs
+  final options5 = 'A.50 B.55 C.60 D.45 E.150'.obs; // 'No Option'.obs
+  final options6 = 'A.50 B.72 C.60 D.45 E.150'.obs; // 'No Option'.obs
+  final options7 = 'A.50 B.55 C.60 D.84 E.150'.obs; // 'No Option'.obs
+  final options8 = 'A.50 B.55 C.60 D.96 E.150'.obs; // 'No Option'.obs
+  final options9 = 'A.50 B.108 C.60 D.45 E.150'.obs; // 'No Option'.obs
+  final options10 = 'A.50 B.55 C.60 D.45 E.120'.obs; // 'No Option'.obs
 
   final answer1 = 50;
   final answer2 = 100;
   final answer3 = 100;
   final answer4 = 200;
   final answer5 = 60;
+  final answer6 = 72;
+  final answer7 = 84;
+  final answer8 = 96;
+  final answer9 = 108;
+  final answer10 = 120;
   // new features for simplicity stops here
 
   // testrunning for lucky click starts here
@@ -175,11 +229,21 @@ class ClickController extends GetxController {
     _timer2?.cancel();
     _timer3?.cancel();
     _timer4?.cancel();
+    _timer5?.cancel();
+    _timer6?.cancel();
+    _timer7?.cancel();
+    _timer8?.cancel();
+    _timer9?.cancel();
     counter = 0.obs;
     counterr = 0.obs;
     counterr3 = 0.obs;
     counterr4 = 0.obs;
     counterr5 = 0.obs;
+    counterr6 = 0.obs;
+    counterr7 = 0.obs;
+    counterr8 = 0.obs;
+    counterr9 = 0.obs;
+    counterr10 = 0.obs;
   }
 
   void decrementCounter() {
@@ -202,6 +266,26 @@ class ClickController extends GetxController {
     counterr5.value--;
   }
 
+  void decrementCounterr6() {
+    counterr6.value--;
+  }
+
+  void decrementCounterr7() {
+    counterr7.value--;
+  }
+
+  void decrementCounterr8() {
+    counterr8.value--;
+  }
+
+  void decrementCounterr9() {
+    counterr9.value--;
+  }
+
+  void decrementCounterr10() {
+    counterr10.value--;
+  }
+
   void incrementCounter() {
     counter.value++;
   }
@@ -220,6 +304,26 @@ class ClickController extends GetxController {
 
   void incrementCounter5() {
     counterr5.value++;
+  }
+
+  void incrementCounter6() {
+    counterr6.value++;
+  }
+
+  void incrementCounter7() {
+    counterr7.value++;
+  }
+
+  void incrementCounter8() {
+    counterr8.value++;
+  }
+
+  void incrementCounter9() {
+    counterr9.value++;
+  }
+
+  void incrementCounter10() {
+    counterr10.value++;
   }
 
   void submit1() {
@@ -242,29 +346,74 @@ class ClickController extends GetxController {
     submitCounter5();
   }
 
+  void submit6() {
+    submitCounter6();
+  }
+
+  void submit7() {
+    submitCounter7();
+  }
+
+  void submit8() {
+    submitCounter8();
+  }
+
+  void submit9() {
+    submitCounter9();
+  }
+
+  void submit10() {
+    submitCounter10();
+  }
+
   void start() {
-    _startTimer(60);
+    _startTimer(50);
     Get.off(HomePage(title: ''));
   }
 
   void start1() {
-    _startTimer1(120);
+    _startTimer1(50);
     Get.off(SecondPage());
   }
 
   void start2() {
-    _startTimer2(120);
+    _startTimer2(50);
     Get.off(ThirdPage());
   }
 
   void start3() {
-    _startTimer3(120);
+    _startTimer3(50);
     Get.off(FourthPage());
   }
 
   void start4() {
-    _startTimer4(120);
+    _startTimer4(50);
     Get.off(FifthPage());
+  }
+
+  void start5() {
+    _startTimer5(50);
+    Get.off(SixthPage());
+  }
+
+  void start6() {
+    _startTimer6(50);
+    Get.off(SeventhPage());
+  }
+
+  void start7() {
+    _startTimer7(50);
+    Get.off(EighthPage());
+  }
+
+  void start8() {
+    _startTimer8(50);
+    Get.off(NinethPage());
+  }
+
+  void start9() {
+    _startTimer9(50);
+    Get.off(TenthPage());
   }
 
   @override
@@ -282,6 +431,21 @@ class ClickController extends GetxController {
       _timer!.cancel();
     }
     if (_timer4 != null) {
+      _timer!.cancel();
+    }
+    if (_timer5 != null) {
+      _timer!.cancel();
+    }
+    if (_timer6 != null) {
+      _timer!.cancel();
+    }
+    if (_timer7 != null) {
+      _timer!.cancel();
+    }
+    if (_timer8 != null) {
+      _timer!.cancel();
+    }
+    if (_timer9 != null) {
       _timer!.cancel();
     }
   }
@@ -362,6 +526,7 @@ class ClickController extends GetxController {
     });
   }
 
+// fifth page
   void _startTimer4(int seconds) {
     const duration = Duration(seconds: 1);
     remainingseconds4 = seconds;
@@ -376,6 +541,97 @@ class ClickController extends GetxController {
         time4.value =
             "${minutes.toString().padLeft(2, "0")}:${seconds.toString().padLeft(2, "0")}";
         remainingseconds4--;
+      }
+    });
+  }
+
+// page 6
+  void _startTimer5(int seconds) {
+    const duration = Duration(seconds: 1);
+    remainingseconds5 = seconds;
+
+    _timer5 = Timer.periodic(duration, (Timer timer5) {
+      if (remainingseconds5 == 0) {
+        _timer5?.cancel();
+        Get.off(const GameOver6());
+      } else {
+        int minutes = remainingseconds5 ~/ 60;
+        int seconds = (remainingseconds5 % 60);
+        time5.value =
+            "${minutes.toString().padLeft(2, "0")}:${seconds.toString().padLeft(2, "0")}";
+        remainingseconds5--;
+      }
+    });
+  }
+
+  void _startTimer6(int seconds) {
+    const duration = Duration(seconds: 1);
+    remainingseconds6 = seconds;
+
+    _timer6 = Timer.periodic(duration, (Timer timer6) {
+      if (remainingseconds6 == 0) {
+        _timer6!.cancel();
+        Get.off(const GameOver7());
+      } else {
+        int minutes = remainingseconds6 ~/ 60;
+        int seconds = (remainingseconds6 % 60);
+        time6.value =
+            "${minutes.toString().padLeft(2, "0")}:${seconds.toString().padLeft(2, "0")}";
+        remainingseconds6--;
+      }
+    });
+  }
+
+  void _startTimer7(int seconds) {
+    const duration = Duration(seconds: 1);
+    remainingseconds7 = seconds;
+
+    _timer7 = Timer.periodic(duration, (Timer timer7) {
+      if (remainingseconds7 == 0) {
+        timer7.cancel();
+        Get.off(const GameOver8());
+      } else {
+        int minutes = remainingseconds7 ~/ 60;
+        int seconds = (remainingseconds7 % 60);
+        time7.value =
+            "${minutes.toString().padLeft(2, "0")}:${seconds.toString().padLeft(2, "0")}";
+        remainingseconds7--;
+      }
+    });
+  }
+
+  void _startTimer8(int seconds) {
+    const duration = Duration(seconds: 1);
+    remainingseconds8 = seconds;
+
+    _timer8 = Timer.periodic(duration, (Timer timer8) {
+      if (remainingseconds4 == 0) {
+        timer8.cancel();
+        Get.off(const GameOver9());
+      } else {
+        int minutes = remainingseconds8 ~/ 60;
+        int seconds = (remainingseconds8 % 60);
+        time8.value =
+            "${minutes.toString().padLeft(2, "0")}:${seconds.toString().padLeft(2, "0")}";
+        remainingseconds8--;
+      }
+    });
+  }
+
+  void _startTimer9(int seconds) {
+    const duration = Duration(seconds: 1);
+    remainingseconds9 = seconds;
+
+    _timer9 = Timer.periodic(duration, (Timer timer9) {
+      if (remainingseconds9 == 0) {
+        timer9.cancel();
+        Get.off(const GameOver10());
+      } else {
+        int minutes = remainingseconds9 ~/ 60;
+        int seconds = (remainingseconds9 % 60);
+        time9.value =
+            "${minutes.toString().padLeft(2, "0")}:${seconds.toString().padLeft(2, "0")}";
+        remainingseconds9--;
       }
     });
   }
@@ -566,6 +822,196 @@ class ClickController extends GetxController {
         Get.snackbar('Congratulations', 'Congratulations',
             colorText: Colors.green);
         _timer4?.cancel();
+        update();
+        Get.off(const Question6());
+      }
+    } catch (e) {
+      Get.snackbar('Error', e.toString(), colorText: Colors.red);
+      print(e);
+    }
+  }
+
+  Future<void> submitCounter6() async {
+    try {
+      if (counterr6 < answer6 || counterr6 > answer6) {
+        Get.snackbar('Wrong Answer', 'Congratulations, you made it to step 2',
+            titleText: const Text(
+              'Wrong Answer!!!',
+              style: TextStyle(
+                fontSize: 50,
+                fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.normal,
+                color: Colors.red,
+              ),
+            ),
+            messageText: const Text(
+              'Keep Trying',
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.w500,
+                fontStyle: FontStyle.italic,
+                color: Colors.green,
+              ),
+            ),
+            colorText: Colors.red);
+
+        const ClearSelectionEvent();
+      } else if (counterr6 == answer6.obs) {
+        Get.snackbar('Congratulations', 'Congratulations',
+            colorText: Colors.green);
+        _timer5?.cancel();
+        update();
+        Get.off(const Question7());
+      }
+    } catch (e) {
+      Get.snackbar('Error', e.toString(), colorText: Colors.red);
+      print(e);
+    }
+  }
+
+  Future<void> submitCounter7() async {
+    try {
+      if (counterr7 < answer7 || counterr7 > answer7) {
+        Get.snackbar('Wrong Answer', 'Congratulations, you made it to step 2',
+            titleText: const Text(
+              'Wrong Answer!!!',
+              style: TextStyle(
+                fontSize: 50,
+                fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.normal,
+                color: Colors.red,
+              ),
+            ),
+            messageText: const Text(
+              'Keep Trying',
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.w500,
+                fontStyle: FontStyle.italic,
+                color: Colors.green,
+              ),
+            ),
+            colorText: Colors.red);
+
+        const ClearSelectionEvent();
+      } else if (counterr7 == answer7.obs) {
+        Get.snackbar('Congratulations', 'Congratulations',
+            colorText: Colors.green);
+        _timer6?.cancel();
+        update();
+        Get.off(const Question8());
+      }
+    } catch (e) {
+      Get.snackbar('Error', e.toString(), colorText: Colors.red);
+      print(e);
+    }
+  }
+
+  Future<void> submitCounter8() async {
+    try {
+      if (counterr8 < answer8 || counterr8 > answer8) {
+        Get.snackbar('Wrong Answer', 'Congratulations, you made it to step 2',
+            titleText: const Text(
+              'Wrong Answer!!!',
+              style: TextStyle(
+                fontSize: 50,
+                fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.normal,
+                color: Colors.red,
+              ),
+            ),
+            messageText: const Text(
+              'Keep Trying',
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.w500,
+                fontStyle: FontStyle.italic,
+                color: Colors.green,
+              ),
+            ),
+            colorText: Colors.red);
+
+        const ClearSelectionEvent();
+      } else if (counterr5 == answer5.obs) {
+        Get.snackbar('Congratulations', 'Congratulations',
+            colorText: Colors.green);
+        _timer7?.cancel();
+        update();
+        Get.off(const Question9());
+      }
+    } catch (e) {
+      Get.snackbar('Error', e.toString(), colorText: Colors.red);
+      print(e);
+    }
+  }
+
+  Future<void> submitCounter9() async {
+    try {
+      if (counterr9 < answer9 || counterr9 > answer9) {
+        Get.snackbar('Wrong Answer', 'Congratulations, you made it to step 2',
+            titleText: const Text(
+              'Wrong Answer!!!',
+              style: TextStyle(
+                fontSize: 50,
+                fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.normal,
+                color: Colors.red,
+              ),
+            ),
+            messageText: const Text(
+              'Keep Trying',
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.w500,
+                fontStyle: FontStyle.italic,
+                color: Colors.green,
+              ),
+            ),
+            colorText: Colors.red);
+
+        const ClearSelectionEvent();
+      } else if (counterr5 == answer5.obs) {
+        Get.snackbar('Congratulations', 'Congratulations',
+            colorText: Colors.green);
+        _timer8?.cancel();
+        update();
+        Get.off(const Question10());
+      }
+    } catch (e) {
+      Get.snackbar('Error', e.toString(), colorText: Colors.red);
+      print(e);
+    }
+  }
+
+  Future<void> submitCounter10() async {
+    try {
+      if (counterr10 < answer10 || counterr10 > answer10) {
+        Get.snackbar('Wrong Answer', 'Congratulations, you made it to step 2',
+            titleText: const Text(
+              'Wrong Answer!!!',
+              style: TextStyle(
+                fontSize: 50,
+                fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.normal,
+                color: Colors.red,
+              ),
+            ),
+            messageText: const Text(
+              'Keep Trying',
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.w500,
+                fontStyle: FontStyle.italic,
+                color: Colors.green,
+              ),
+            ),
+            colorText: Colors.red);
+
+        const ClearSelectionEvent();
+      } else if (counterr5 == answer5.obs) {
+        Get.snackbar('Congratulations', 'Congratulations',
+            colorText: Colors.green);
+        _timer9?.cancel();
         update();
         Get.off(const ConfirmPage());
       }
