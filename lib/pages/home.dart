@@ -16,6 +16,13 @@ class _HomePageState extends State<HomePage> {
   final user = FirebaseAuth.instance.currentUser!;
   var ctrl = Get.put(ClickController());
 
+  // final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+
+  // Future<void> signOut() async {
+  //   await _firebaseAuth.signOut();
+  //   Get.offAll(MainPage());
+  // }
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<ClickController>(builder: (ctrl) {
@@ -40,59 +47,59 @@ class _HomePageState extends State<HomePage> {
                     const SizedBox(
                       width: 20,
                     ),
-                    const Text('Balance: NGN 500,000,000')
+                    // const Text('Balance: NGN 500,000,000')
                   ],
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        height: 35,
-                        width: 180,
-                        decoration: BoxDecoration(
-                            color: Colors.green,
-                            borderRadius: BorderRadius.circular(5)),
-                        child: const Center(
-                          child: Text(
-                            'Withraw Money',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.amber,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        Get.to(const PaymentPage());
-                      },
-                      child: Container(
-                        height: 35,
-                        width: 180,
-                        decoration: BoxDecoration(
-                            color: Colors.blue,
-                            borderRadius: BorderRadius.circular(5)),
-                        child: const Center(
-                          child: Text(
-                            'Deposit',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.amber,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //   children: [
+                //     InkWell(
+                //       onTap: () {},
+                //       child: Container(
+                //         height: 35,
+                //         width: 180,
+                //         decoration: BoxDecoration(
+                //             color: Colors.green,
+                //             borderRadius: BorderRadius.circular(5)),
+                //         child: const Center(
+                //           child: Text(
+                //             'Withraw Money',
+                //             style: TextStyle(
+                //               fontSize: 20,
+                //               fontWeight: FontWeight.bold,
+                //               color: Colors.amber,
+                //             ),
+                //           ),
+                //         ),
+                //       ),
+                //     ),
+                //     InkWell(
+                //       onTap: () {
+                //         Get.to(const PaymentPage());
+                //       },
+                //       child: Container(
+                //         height: 35,
+                //         width: 180,
+                //         decoration: BoxDecoration(
+                //             color: Colors.blue,
+                //             borderRadius: BorderRadius.circular(5)),
+                //         child: const Center(
+                //           child: Text(
+                //             'Deposit',
+                //             style: TextStyle(
+                //               fontSize: 20,
+                //               fontWeight: FontWeight.bold,
+                //               color: Colors.amber,
+                //             ),
+                //           ),
+                //         ),
+                //       ),
+                //     ),
+                //   ],
+                // ), // commented out for future use
                 const SizedBox(
                   height: 10,
                 ),

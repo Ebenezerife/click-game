@@ -1,10 +1,26 @@
+import 'package:click_game/authpage/main_page.dart';
 import 'package:click_game/controllers/controllers/click_controller.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class StartPage extends StatelessWidget {
+class StartPage extends StatefulWidget {
   const StartPage({super.key});
+
+  @override
+  State<StartPage> createState() => _StartPageState();
+}
+
+class _StartPageState extends State<StartPage> {
+  final user = FirebaseAuth.instance.currentUser!;
+  var ctrl = Get.put(ClickController());
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+
+  Future<void> signOut() async {
+    await _firebaseAuth.signOut();
+    Get.offAll(MainPage());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +44,11 @@ class StartPage extends StatelessWidget {
           child: Center(
             child: Column(
               children: [
+                ElevatedButton(
+                    onPressed: () {
+                      signOut();
+                    },
+                    child: Text('Sign Out')),
                 const Text(
                   'Question 1 earns you \$100',
                   style: TextStyle(
