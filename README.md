@@ -1,16 +1,13 @@
 # click_game
 
-A new Flutter project.
+This project was what introduced me to GETX State Management, Firebase Authentication and Hosting.
+It took me so long being my first personal project to get my hands on building something I understand.
+It is a fun game with Countdown timer and 10 questions to answer.
 
-## Getting Started
+Whoever answers the 10 questions correctly takes the grand prize.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+It is hosted on firebase ifeclickgame.web.app just to give access to more people to play and give feddbacks.
+I later had to disable the registration for personal reasons.
+So, you can use these login credentials to access it:
+email: gameboy123@gmail.com
+pwsd: godblessme123
